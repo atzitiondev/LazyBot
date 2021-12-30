@@ -36,9 +36,9 @@ const AFK_HANDLE: LBPlugin = {
     const afkInfo = afk.getAfk();
     await event.message.reply({
       message:
-        `I am currently AFK. Please don't spam & wait for my response\n\n` +
-        `&#9055; <b>Reason :</b> <code>${afkInfo.reason}</code>\n` +
-        `&#9055; <b>Since :</b> <code>${afkInfo.since}</code>`
+        `Actualmente estoy AFK. Por favor, no envíe spam y espere mi respuesta\n\n` +
+        `&#9055; <b>Razón:</b> <code>${afkInfo.reason}</code>\n` +
+        `&#9055; <b>Ya que:</b> <code>${afkInfo.since}</code>`
     });
   },
   outgoing: false,
@@ -48,10 +48,10 @@ const AFK_HANDLE: LBPlugin = {
 const AFK_CMD: LBPlugin = {
   handler: async (event) => {
     const { args } = extract(event.message.message);
-    const reason = args || 'Not Mentioned';
+    const reason = args || 'No Mencionado';
 
     await event.message.edit({
-      text: `AFK Mode on\n\n&#9055; <b>Reason :</b> <code>${reason}</code>`
+      text: `Modo AFK activado\n\n&#9055; <b>Razón:</b> <code>${reason}</code>`
     });
 
     afk.setAfk(reason);
@@ -69,7 +69,7 @@ const AFK_STOP: LBPlugin = {
     await sleep(2500);
     if (!afk.isAfk) return;
     const off = await client.sendMessage(e.message.chatId!, {
-      message: 'AFK has been turned off...'
+      message: 'AFK se ha desactivado...'
     });
     await sleep(500);
     client.deleteMessages(off.chatId, [off.id], { revoke: true });
@@ -83,8 +83,8 @@ const AFK_STOP: LBPlugin = {
 
 export default [AFK_HANDLE, AFK_CMD, AFK_STOP];
 export const help =
-  `AFK stands for Away From Keyboard. If you turn on AFK mode before going offline, when someone PM/Mentions you, will be notified that you are offline.\n\n` +
-  `<b>Examples : </b>\n\n` +
-  `• <code>{}afk</code> : Turns on AFK\n` +
-  `• <code>{}afk having party</code> : Turns on AFK with reason set to 'having party'\n\n` +
-  `AFK Mode will be turned off automatically if you send any message and received PM/Mentions will be logged in the Log Chat`;
+  `AFK son las siglas de Away From Keyboard. Si activa el modo AFK antes de desconectarse, cuando alguien PM / lo mencione, se le notificará que está desconectado.\n\n` +
+  `<b>Ejemplos: </b>\n\n` +
+  `• <code>{}afk</code> : Enciende AFK\n` +
+  `• <code>{}afk tengo fiesta</code> : Activa AFK con el motivo establecido en 'tengo fiesta'\n\n` +
+  `El modo AFK se desactivará automáticamente si envía cualquier mensaje y las MD/menciones recibidas se registrarán en el chat de log.`;
