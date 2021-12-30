@@ -80,7 +80,7 @@ const WHOIS: LBPlugin = {
 export default [WHOIS];
 export const help =
   '<i>Proporciona información de usuario de nombre de usuario</i>\n\n' +
-  `<b>Ejemplos :</b>\n\n` +
+  `<b>Ejemplos:</b>\n\n` +
   `• <code>{}whois</code>\n` +
   `• <code>{}whois 777000</code>\n` +
   `o responde <code>{}whois</code> a algún mensaje`;
