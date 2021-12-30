@@ -5,10 +5,19 @@ import env from '../env';
 
 const warnuser = (warns: number): string => {
   return (
-    `<code>Esta es una respuesta automática</code>\n\n` +
-    `<i>Espere a que el maestro apruebe su solicitud de bandeja de entrada\n` +
-    `Si sigue enviando spam, será bloqueado y reportado automáticamente</i>\n\n` +
-    `<b>Avisos:</b> <code>${warns}</code>`
+    `Hii honey😘😘💕💕, Its me Slutty.\n`
+    `I'm a Femboy that loves to make Hot Sexy videos and pics,🔞🍑🔥🍆\n`
+    `Please follow me on:\n`
+    `https://twitter.com/SluttyBoyTV\n`
+    `To wach all my lewd Stuff\n\n`
+    `Also note that usually I not reply here. Talk me on Twitter DM 😘💕💕\n\n`
+    `Hola cielo, Soy yo Slutty. 😘😘💕💕\n`
+    `Soy un Femboy que ama hacer videos sexis y pornosos 🔞🍑🔥🍆\n`
+    `Porfavor, sigueme en:\n`
+    `https://twitter.com/SluttyBoyTV\n`
+    `Para ver mis fotos y vídeos hot\n\n`
+    `Ten en cuenta que no suelo responder aquí. Hablame Por DM en twitter 😘💕💕\n\n`
+    `📵PLEASE DO NOT CALL/POR FAVOR NO LLAMAR📵`
   );
 };
 
