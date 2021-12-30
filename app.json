@@ -7,9 +7,9 @@
     "nodejs",
     "gramjs"
   ],
-  "repository": "https://github.com/XDBots/LazyBot",
+  "repository": "https://github.com/atzitiondev/bot",
   "logo": "https://telegra.ph/file/9d9841ccc1d33239e5a2b.jpg",
-  "success_url": "https://telegram.dog/xdbots",
+  "success_url": "https://t.me/atzitionTV",
   "env": {
     "API_ID": {
       "description": "Get API_ID from https://my.telegram.org/apps.",
