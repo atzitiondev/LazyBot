@@ -9,6 +9,6 @@ export default {
   commands: 'alive'
 } as LBPlugin;
 export const help =
-  `A plugin just to check if LazyBot is on\n\n` +
-  `<b>Available Commands :</b>\n\n` +
-  `• <code>{}alive</code> - Show LazyBot and some system info`;
+  `Un complemento solo para verificar si el bot está activado\n\n` +
+  `<b>Comandos Disponibles:</b>\n\n` +
+  `• <code>{}alive</code> - Muestra el bot y algo de información del sistema`;
