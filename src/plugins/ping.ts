@@ -17,6 +17,6 @@ const Ping: LBPlugin = {
 
 export default [Ping];
 export const help =
-  '<i>Checks ping time with Telgram server</i>\n\n' +
-  '<b>Available Commands : </b>\n\n' +
+  '<i>Comprueba el tiempo de ping con el servidor Telegram</i>\n\n' +
+  '<b>Comandos Disponibles: </b>\n\n' +
   '• <code>{}ping</code>';
