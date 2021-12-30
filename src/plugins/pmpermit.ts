@@ -5,10 +5,10 @@ import env from '../env';
 
 const warnuser = (warns: number): string => {
   return (
-    `<code>This is an automated reply</code>\n\n` +
-    `<i>Please wait for master to approve your inbox request\n` +
-    `If you keep spamming you will be blocked and reported automatcally</i>\n\n` +
-    `<b>Warns :</b> <code>${warns}</code>`
+    `<code>Esta es una respuesta automática</code>\n\n` +
+    `<i>Espere a que el maestro apruebe su solicitud de bandeja de entrada\n` +
+    `Si sigue enviando spam, será bloqueado y reportado automáticamente</i>\n\n` +
+    `<b>Avisos:</b> <code>${warns}</code>`
   );
 };
 
@@ -43,7 +43,7 @@ const PMPERMIT: LBPlugin = {
 
     if (user.warns > env.PM_PERMIT_MAX_WARNS) {
       await client.sendMessage(senderId, {
-        message: '<code>You Have Been Blocked</code>'
+        message: '<code>Ha sido bloqueado</code>'
       });
       await client.invoke(BlockUser(senderId));
 
@@ -74,7 +74,7 @@ const PMPERMIT_APPROVE: LBPlugin = {
   handler: async (event) => {
     if (event.isGroup || !event.chatId) {
       await event.message.edit({
-        text: '<code>This command is allowed in private chats</code>'
+        text: '<code>Este comando está permitido en chats privados</code>'
       });
       return;
     }
@@ -85,7 +85,7 @@ const PMPERMIT_APPROVE: LBPlugin = {
 
     if (user && user.approved) {
       await event.message.edit({
-        text: '<code>User is already approved</code>'
+        text: '<code>El usuario ya está aprobado</code>'
       });
       await prisma.$disconnect();
       return;
@@ -101,7 +101,7 @@ const PMPERMIT_APPROVE: LBPlugin = {
     });
     await prisma.$disconnect();
 
-    await event.message.edit({ text: `<b>User has been Approved</b>` });
+    await event.message.edit({ text: `<b>El usuario ha sido aprobado</b>` });
     await sleep(2500);
     await event.message.delete({ revoke: true });
   },
@@ -112,7 +112,7 @@ const PMPERMIT_BLOCK: LBPlugin = {
   handler: async (event, client) => {
     if (event.isGroup || !event.chatId) {
       await event.message.edit({
-        text: '<code>This command is allowed in private chats</code>'
+        text: '<code>Este comando está permitido en chats privados</code>'
       });
       return;
     }
@@ -134,7 +134,7 @@ const PMPERMIT_BLOCK: LBPlugin = {
 
 export default [PMPERMIT, PMPERMIT_APPROVE, PMPERMIT_BLOCK];
 export const help =
-  '<i>PM Permit is a feature to prevent Inbox spamming and unwanted PMs</i>\n\n' +
-  '<b>Available Commands : </b>\n\n' +
-  "• <code>{}a</code> | <code>{}approve</code> : <i>Approves the user. Now Lazygram won't disturb the conversation</i>\n" +
-  "• <code>{}unapprove</code> | <code>{}block</code> : <i>Doesn't accept the PM and blocks the user</i>";
+  '<i>El permiso de MD es una función para evitar el spam en la bandeja de entrada y los DM no deseados</i>\n\n' +
+  '<b>Comandos Disponibles: </b>\n\n' +
+  "• <code>{}a</code> | <code>{}approve</code> : <i>Aprueba el usuario. Ahora no perturbará la conversación.</i>\n" +
+  "• <code>{}unapprove</code> | <code>{}block</code> : <i>No acepta el MD y bloquea al usuario.</i>";
