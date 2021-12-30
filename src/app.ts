@@ -6,5 +6,5 @@ import { plugins } from './plugins';
   await LazyFileHelper.init();
   await startUserbot();
   await plugins.load(client);
-  await LazyLogger.log(client, '[LazyBot] => Running...');
+  await LazyLogger.log(client, '[Bot] => Corriendo...');
 })();
