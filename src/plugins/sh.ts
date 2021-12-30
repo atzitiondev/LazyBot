@@ -22,7 +22,7 @@ const SH: LBPlugin = {
           text: '<code>[≈]</code> ' + escape(err.name + ': ' + err.message)
         });
       } else if (stdout === 'None' && stderr === 'None') {
-        await event.message.edit({ text: '<code>[×]</code> No Output' });
+        await event.message.edit({ text: '<code>[×]</code> No hay salida' });
       } else {
         const message =
           `<code>[&#955;]</code> cmd:<code> ${command}</code>\n\n` +
@@ -52,6 +52,6 @@ const SH: LBPlugin = {
 
 export default [SH];
 export const help =
-  `Executes Shell Commands. <b><u>Don't use if you don't understand shell scripting</u></b>\n\n` +
-  `<b>Available Commands :</b>\n\n` +
-  `• <code>{}sh command</code> : Execute command`;
+  `Ejecuta comandos de Shell. <b><u>No lo use si no comprende las secuencias de comandos de shell</u></b>\n\n` +
+  `<b>Comandos Disponibles:</b>\n\n` +
+  `• <code>{}sh comando</code> : Ejecuta el comando`;
