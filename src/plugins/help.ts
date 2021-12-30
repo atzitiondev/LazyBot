@@ -6,9 +6,9 @@ const HELP: LBPlugin = {
     if (!args) {
       await event.message.edit({
         text:
-          `<b><u>LazyBot Help Wizard</u></b>\n\n` +
-          `<b>Usage :</b> <code>.help plugin</code>\n\n` +
-          `<b>Available Plugins</b>\n` +
+          `<b><u>Asistente de ayuda del bot</u></b>\n\n` +
+          `<b>Uso:</b> <code>.help plugin</code>\n\n` +
+          `<b>Plugins Disponibles</b>\n` +
           `<code>` +
           LazyHelp.getPluginList().reduce(
             (prev, current) => prev + ', ' + current
@@ -20,7 +20,7 @@ const HELP: LBPlugin = {
 
     await event.message.edit({
       text:
-        `<b>Plugin : </b><code>${args}</code>\n\n` +
+        `<b>Plugin: </b><code>${args}</code>\n\n` +
         LazyHelp.getHelp(args.trim())
     });
   },
@@ -30,6 +30,6 @@ const HELP: LBPlugin = {
 
 export default [HELP];
 export const help =
-  '<b>Examples</b>\n\n' +
-  '• <code>{}help</code> : <i>Shows this help menu</i>\n' +
-  '• <code>{}help plugin name</code> : <i>Shows help for that plugin</i>';
+  '<b>Ejemplos</b>\n\n' +
+  '• <code>{}help</code> : <i>Muestra este menú de ayuda</i>\n' +
+  '• <code>{}help plugin</code> : <i>Muestra ayuda sobre el plugin mencionado</i>';
