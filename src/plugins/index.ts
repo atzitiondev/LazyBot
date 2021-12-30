@@ -14,18 +14,18 @@ class PluginLoader {
 
   private validate(plugin: LBPlugin, filename: string) {
     if (!('handler' in plugin)) {
-      console.warn(`[LazyBot] => Invalid Plugin - No Handler Found`);
+      console.warn(`[Bot] => Plugin no Válido - No se ha encontrado ningún controlador`);
       return false;
     }
 
     if (typeof plugin.handler !== 'function') {
-      console.warn(`[LazyBot] => Invalid Plugin - Invalid Handler`);
+      console.warn(`[Bot] => Plugin no Válido - Controlador no válido`);
       return false;
     }
 
     if (plugin.outgoing && !(plugin.commands || plugin.pattern)) {
       console.warn(
-        `[LazyBot] => Invalid Plugin - Commands/Pattern required for this Plugin`
+        `[Bot] => Plugin no Válido - Comandos/patrón necesarios para este plugin`
       );
       return false;
     }
@@ -48,7 +48,7 @@ class PluginLoader {
           });
           client.sendMessage(env.LOG_CHAT_ID, { message: error });
         } catch (e) {
-          console.log('[LazyBot][Error] => ' + String(e));
+          console.log('[Bot][Error] => ' + String(e));
         }
       }
     };
@@ -67,7 +67,7 @@ class PluginLoader {
   }
 
   async load(client: TelegramClient) {
-    console.info('[LazyBot] => Looking For Plugins...');
+    console.info('[LazyBot] => Buscando Plugins...');
     const pluginFiles = fs
       .readdirSync(__dirname)
       .filter(
@@ -75,21 +75,21 @@ class PluginLoader {
           file.slice(0, -3) !== 'index' && ['ts', 'js'].includes(file.slice(-2))
       );
 
-    console.info(`[LazyBot] => Found ${pluginFiles.length} Plugin Files...\n`);
+    console.info(`[Bot] => Found ${pluginFiles.length} Archivos de Plugin...\n`);
 
-    console.info('[LazyBot] => Loading Plugins...');
+    console.info('[Bot] => Cargando Plugins...');
     for (const file of pluginFiles) {
       const filename = file.slice(0, -3);
       let xdplug = await import(path.join(__dirname, filename));
 
       let plugin = xdplug.default as LBPlugin | LBPlugin[];
       if (!plugin) {
-        return console.log('[LazyBot] => Failed to Load Plugin - ' + filename);
+        return console.log('[Bot] => Error al cargar el plugin - ' + filename);
       }
 
       let help = xdplug.help as string;
       if (!help) {
-        help = '<code>No Docs Provided by Plugin Developer</code>';
+        help = '<code>No hay documentos proporcionados por el desarrollador de plugins</code>';
       }
 
       if (!Array.isArray(plugin)) {
@@ -102,7 +102,7 @@ class PluginLoader {
       }
 
       LazyHelp.addHelp(filename, help.replace(/{}/g, env.CMD_PREFIX));
-      console.info('[LazyBot] => Loaded Plugin File - ' + filename);
+      console.info('[Bot] => Cargado archivo de plugin - ' + filename);
     }
   }
 }
